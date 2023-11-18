@@ -11,6 +11,7 @@ const config: Config = {
       fontFamily: {
         inter: ["Inter", "sans"],
         jost: ["Jost", "sans-serif"],
+        rolinko: ["Rolinko"],
       },
       colors: {
         primary: "#F7EEEB",
