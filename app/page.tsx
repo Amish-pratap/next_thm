@@ -17,12 +17,14 @@ import FollowCard from "./components/followCard/page";
 export default function Home() {
   return (
     <main>
+      {/* nav bar */}
+
       {/* video section   */}
       <div className="h-[585px] relative home-gradient z-15">
         <div className="absolute inset-0">
           <Image src={img1} alt="watch image" layout="fill" objectFit="cover" />
         </div>
-        <div className="relative px-[80px] pt-[60px] text-white">
+        <div className="relative px-[80px] pt-[60px] text-white z-10">
           <div className="flex  justify-between items-center">
             <div className="flex ">
               <Image src={img4} alt="sun icon" className="mr-[8px]" />
@@ -50,15 +52,18 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="font-jost font-medium leading-6 tracking-wider ">
+          <div className="font-jost font-medium leading-6 tracking-wider mt-[86px] ">
             FEATURED
           </div>
-          <div className="font-rolinko text-[28px] w-[407px] font-thin leading-[34px] tracking-wider">
+          <div className="font-rolinko text-[28px] w-[407px] font-thin leading-[34px] tracking-wider mt-[16px]">
             Celebrating The Intersection Of Horology And Mithai This Festive
             Season
           </div>
-          <div>READ MORE</div>
+          <div className="py-[8px] gold-gradient w-[152px] rounded-[12px] text-black flex items-center justify-center font-jost font-medium mt-[16px]  ">
+            READ MORE
+          </div>
         </div>
+        <div className=" absolute h-[585px] w-[720px] absolute top-0 left-0 home-gradient"></div>
       </div>
 
       {/* landing section */}
@@ -86,7 +91,8 @@ export default function Home() {
           </div>
           <div className="font-jost">VIEW ALL ARTICLES</div>
         </div>
-        <div className="flex pt-[11px] space-x-[80px] px-[80px] ">
+
+        <div className="flex pt-[11px] space-x-[80px] px-[80px] bg-red-300 ">
           <ul className="flex flex-col space-y-[24px] w-[180px]  ">
             <li>Feature 1</li>
             <li>Feature 2</li>
@@ -170,7 +176,7 @@ export default function Home() {
 
       {/* brands section  */}
 
-      <div className="h-[760px] brand_gradient text-white px-[80px] py-[40px]">
+      <div className="h-[760px] brand_gradient bg-heading text-white px-[80px] py-[40px] relative mt-[-80px] rounded-tl-[80px] z-50">
         <div className="flex justify-between">
           <div className="  ">DISCOVER BRANDS</div>
           <div>VIEW ALL BRANDSf</div>
@@ -241,7 +247,7 @@ export default function Home() {
       </div>
 
       {/* follow thm section  */}
-      <div className="bg-black text-white">
+      <div className="bg-black text-white  relative mt-[-80px] rounded-tr-[80px] z-[60] overflow-hidden">
         <FollowCard />
       </div>
     </main>
