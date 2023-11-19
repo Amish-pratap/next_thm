@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: "Rolinko";
-  src: url("../public/font/Rolinko.otf") format("opentype");
+  src: url("../public/font/RolinkoTtf.ttf") format("truetype");
 }
 
 @tailwind base;
@@ -23,6 +23,16 @@
     rgba(2, 1, 1, 0) 100%
   );
 }
+
+.text-goldg {
+  background: var(
+    --Gold-Gradient,
+    linear-gradient(84deg, #ffd085 0%, #e9d99d 100%)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .gold-text {
   background: var(
     --Gold-Gradient,
@@ -34,18 +44,14 @@
 }
 
 .gradient-overlay {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   background: linear-gradient(
     180deg,
     rgba(247, 238, 235, 0) 34.43%,
     rgba(247, 238, 235, 0.8) 100%
   );
-  pointer-events: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 .brand_gradient {
@@ -55,4 +61,8 @@
     #2f2525 79.29%,
     #712815 191.5%
   );
+}
+
+.login_gradient {
+  background: linear-gradient(180deg, #020101 0%, #2f2525 67%, #712815 167.63%);
 }
