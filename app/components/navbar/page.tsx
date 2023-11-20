@@ -10,9 +10,29 @@ import img7 from "../../../public/icons/cross.svg";
 
 import Image from "next/image";
 import Link from "next/link";
+import ArticleSection from "@/app/navComponents/articleSection/page";
+import NewReleaseSection from "@/app/navComponents/releaseSection/page";
 
 const Navbar = () => {
   const [isOpen, setOpen] = useState(false);
+  const [selectedSection, setSelectedSection] = useState("Articles");
+
+  const handleSectionClick = (section: string) => {
+    setSelectedSection(section);
+    // toggleMenu(); // Close the menu after selecting a section (optional)
+  };
+
+  const renderSection = () => {
+    switch (selectedSection) {
+      case "Articles":
+        return <ArticleSection />;
+      case "New Releases":
+        return <NewReleaseSection />;
+      // Add cases for other sections as needed...
+      default:
+        return null;
+    }
+  };
 
   const toggleMenu = () => {
     setOpen(!isOpen);
@@ -41,13 +61,17 @@ const Navbar = () => {
               />
             </button>
           </div>
-          <div className="w-[32px] h-[32px] ml-[56px]">
-            <Image src={img2} alt="home" />
+          <Link href="/">
+            <div className="w-[32px] h-[32px] ml-[56px]">
+              <Image src={img2} alt="home" />
+            </div>
+          </Link>
+        </div>
+        <Link href="/">
+          <div>
+            <Image src={img3} alt="the hour makers" />
           </div>
-        </div>
-        <div>
-          <Image src={img3} alt="the hour makers" />
-        </div>
+        </Link>
         <div className="flex">
           <Link href="/pages/login">
             <div className="mr-[56px]">
@@ -67,8 +91,30 @@ const Navbar = () => {
       {isOpen && (
         <div className="bg-white  absolute w-full h-[800px]  flex justify-between ">
           <div className="w-[516px] bg-red-200 pt-[95px] px-[80px] space-y-[33px]">
-            <div className="font-jost text-[28px] font-light">Articles</div>
-            <div className="font-jost text-[28px] font-light">New Releases</div>
+            <div
+              className={`${
+                selectedSection === "Articles" ? "bg-red-300" : ""
+              }`}
+            >
+              <button
+                className="font-jost text-[28px] font-light"
+                onClick={() => handleSectionClick("Articles")}
+              >
+                Articles
+              </button>
+            </div>
+            <div
+              className={`${
+                selectedSection === "New Releases" ? "bg-red-300" : ""
+              }`}
+            >
+              <button
+                className="font-jost text-[28px] font-light"
+                onClick={() => handleSectionClick("New Releases")}
+              >
+                New Releases
+              </button>
+            </div>
             <div className="font-jost text-[28px] font-light">Events</div>
             <div className="font-jost text-[28px] font-light">Brandss</div>
             <div className="font-jost text-[28px] font-light">
@@ -80,7 +126,7 @@ const Navbar = () => {
             <div className="font-jost text-[16px]">Fashion Watches</div>
             <div className="font-jost text-[16px]">Change Language</div>
           </div>
-          <div className="bg-red-500 w-"> articles section </div>
+          {renderSection()}
         </div>
       )}
     </nav>

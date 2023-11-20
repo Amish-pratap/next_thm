@@ -5,7 +5,7 @@ import img3 from "../public/eventBackground.png";
 import img4 from "../public/icons/sun.svg";
 import img5 from "../public/icons/pause.svg";
 import img6 from "../public/icons/circle.svg";
-// import img7 from "../public/icons/arrow.svg";
+import img7 from "../public/THM.svg";
 import img8 from "../public/icons/goldCircle.svg";
 
 import LandingCard from "./components/landingCard/page";
@@ -14,6 +14,7 @@ import NewReleaseCard from "./components/newReleaseCard/page";
 import EventCard from "./components/eventCard/page";
 import FollowCard from "./components/followCard/page";
 import Sbutton from "./components/secondaryButton/page";
+import Link from "next/link";
 // import NavSection from "./components/navSection/page";
 
 const options = [
@@ -80,7 +81,7 @@ export default function Home() {
             READ MORE
           </div>
         </div>
-        <div className=" absolute h-[585px] w-[720px] absolute top-0 left-0 home-gradient"></div>
+        <div className=" absolute h-[585px] w-[720px] top-0 left-0 home-gradient"></div>
       </div>
 
       {/* landing section */}
@@ -101,13 +102,14 @@ export default function Home() {
             <div className="font-jost text-[28px] font-normal text-heading">
               READ OUR ARTICLES
             </div>
-            <button className="flex items-center bg-transparent  px-4 py-2  rounded-md">
+
+            <Link href="/pages/allArticles">
               <Sbutton
                 arrowColor="black"
                 textColor="heading"
                 text="VIEW ALL ARTICLES"
               />
-            </button>
+            </Link>
           </div>
           <div className="font-inter font-light tracking-wide mt-[16px]  w-[845px]">
             Here, you will discover the best brands, the most innovative
@@ -120,7 +122,10 @@ export default function Home() {
         <div className="flex  space-x-[80px]   mt-[40px] justify-between ">
           <div className="flex flex-col h-[400px] overflow-y-auto  space-y-4 w-[180px] no-scrollbar">
             {options.map((option, index) => (
-              <div key={index} className="px-4 py-2 bg-gray-300 rounded-md ">
+              <div
+                key={index}
+                className="px-4 py-2 gold-gradient rounded-[12px] "
+              >
                 {option.toUpperCase()}
               </div>
             ))}
@@ -136,22 +141,30 @@ export default function Home() {
 
       {/* new releases section */}
 
-      <div className="h-[797px] flex space-x-[40px] relative mt-[-80px] rounded-tl-[80px] z-30 bg-white">
-        <div className="pt-[40px] pl-[80px]">
-          <div className="flex justify-between">
-            <div className=" font-rolinko text-[18px]">NEW RELEASES</div>
-            <div className="">VIEW ALL RELEASES</div>
+      <div className="h-[797px] flex   relative mt-[-80px] rounded-tl-[80px] z-30 bg-white">
+        <div className="w-[950px] pl-[80px]">
+          <div className="flex justify-between mt-[40px] pr-[30px]">
+            <div className=" font-jost text-[18px]">NEW RELEASES</div>
+            <Sbutton
+              text="VIEW ALL RELEASES"
+              textColor="heading"
+              arrowColor="black"
+            />
           </div>
-          <div>
+          <div className="w-[823px] font-inter font-light tracking-wide mt-[16px]">
             The Hour Markers has curated the latest and greatest models from the
             top brands in the industry. Don’t miss our new releases section,
             where you can discover the best of the best in luxury watches.
           </div>
-          <div className="flex">
-            <div>RELEASES OF 2023</div>
-            <div>RELEASES OF 2022</div>
+          <div className="flex mt-[32px] font-jost font-medium">
+            <div className="w-[212px] justify-center flex rounded-[12px] gold-gradient py-[8px]">
+              RELEASES OF 2023
+            </div>
+            <div className="w-[212px] justify-center flex rounded-[12px]  py-[8px]">
+              RELEASES OF 2022
+            </div>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-x-[10px] gap-y-[44px] mt-[45px]">
             <NewReleaseCard />
             <NewReleaseCard />
             <NewReleaseCard />
@@ -159,7 +172,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="w-[490px] bg-heading ">
+        <div className=" w-[490px] bg-heading ">
           <Image
             src={img2}
             alt="new release image"
@@ -176,16 +189,22 @@ export default function Home() {
         </div>
         <div className="relative">
           <div className="flex justify-between">
-            <div className="  ">EXPLORE EVENTS G</div>
-            <div>VIEW ALL EVENTS</div>
+            <div className="font-jost text-[28px] font-normal  ">
+              EXPLORE EVENTS
+            </div>
+            <Sbutton
+              text="VIEW ALL EVENTS"
+              textColor="heading"
+              arrowColor="black"
+            />
           </div>
-          <div>
+          <div className="w-[826px]  font-inter font-light mt-[16px]">
             Watch events are the perfect place to see the latest trends and
             innovations in luxury watches. Read our articles and learn about the
             most exciting and exclusive watch events around the world.
           </div>
 
-          <div className="grid grid-cols-2 gap-10 w-[940px]">
+          <div className="grid grid-cols-2 gap-y-[32px] w-[900px] mt-[40px]">
             <EventCard />
             <EventCard />
             <EventCard />
@@ -202,10 +221,11 @@ export default function Home() {
             DISCOVER BRANDS
           </div>
           <button className="flex items-center bg-transparent text-primary px-4 py-2  rounded-md">
-            <span className="gold-text font-jost leading-6 font-medium ">
-              VIEW ALL BRNDS
-            </span>
-            <Sbutton arrowColor="gold" textColor="goldg" text="he he" />
+            <Sbutton
+              arrowColor="gold"
+              textColor="goldg"
+              text="VIEW ALL BRANDS"
+            />
             {/* <Image src={img7} alt="arrow icon" width={24} height={24} /> */}
           </button>
         </div>
@@ -286,8 +306,33 @@ export default function Home() {
         </div>
       </div>
 
+      {/* collectors corner  */}
+
+      <div className="h-[416px] relative rounded-tr-[80px] z-[55] overflow-hidden mt-[-80px] flex flex-col px-[80px]">
+        <div className="z-[56] text-goldg font-jost text-[28px] mt-[70px] font-normal">
+          JOIN COLLECTOR’S CORNER
+        </div>
+        <div className="z-[56] text-white font-inter w-[491px] font-light tracking-wide">
+          Collector’s Corner is a platform where you can connect with other
+          collectors, exchange tips and insights, and discover new and exciting
+          watches. Join Collector’s Corner today and become part of the world’s
+          largest and most active watch community.
+        </div>
+        <div className="z-[56] flex mt-[20px] space-x-[20px]">
+          <Sbutton text="SIGN UP NOW" textColor="goldg" arrowColor="gold" />
+          <Sbutton text="LEARN MORE" textColor="goldg" arrowColor="gold" />
+        </div>
+
+        <div className="absolute inset-0">
+          <Image src={img1} alt="watch image" layout="fill" objectFit="cover" />
+        </div>
+        <div className="absolute top-[70px] right-[80px]">
+          <Image src={img7} alt="THM logo" />
+        </div>
+      </div>
+
       {/* follow thm section  */}
-      <div className="bg-black text-white  relative mt-[-80px] rounded-tr-[80px] z-[60] overflow-hidden">
+      <div className="bg-black text-white  relative mt-[-80px] rounded-tl-[80px] z-[60] overflow-hidden">
         <FollowCard />
       </div>
     </main>

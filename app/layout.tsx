@@ -3,8 +3,19 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar/page";
 import Footer from "./components/footer/page";
+import localFont from "@next/font/local";
 
 const inter = Inter({ subsets: ["latin"] });
+
+const Rolinko = localFont({
+  src: [
+    {
+      path: "../public/font/RolinkoTtf.ttf",
+      weight: "300",
+    },
+  ],
+  variable: "--font-rolinko",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,7 +29,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} ${Rolinko.variable}`}>
         <div className="w-[1440px]">
           <Navbar></Navbar>
           <main>{children}</main>
